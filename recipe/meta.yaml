@@ -24,6 +24,8 @@ requirements:
     # needs a GUI, cannot be matplotlib-base
     - matplotlib
     - colorspacious
+    # not specified but used
+    - scipy
 
 about:
   home: https://github.com/bids/viscm
