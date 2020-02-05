@@ -1,4 +1,4 @@
 import matplotlib
-matplotlib.rcParams['backend'] = "QT4AGG"
+matplotlib.rcParams["backend"] = "Qt5Agg"
 
 import viscm
