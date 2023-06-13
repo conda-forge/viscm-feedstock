@@ -15,17 +15,16 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.9
     - pip
     - numpy  # it is noarch and the numpy import at setup.py is a bug
   run:
-    - python
+    - python >=3.9
     - numpy
-    # needs a GUI, cannot be matplotlib-base
-    - matplotlib
+    - matplotlib-base
     - colorspacious
-    # not specified but used
     - scipy
+    - PySide2
 
 about:
   home: https://github.com/bids/viscm
