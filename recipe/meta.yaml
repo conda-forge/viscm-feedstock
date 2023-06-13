@@ -1,4 +1,7 @@
-{% set version = "0.9" %}
+{% set version = "0.10" %}
+{% set build_number = "0" %}
+{% set sha256 = "0a30dd19bc2b6cdbcf198b2526b1bd11e8031fa0df6e2b3cd7d95ad792550643" %}
+
 
 package:
   name: viscm
@@ -6,10 +9,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/v/viscm/viscm-{{ version }}.tar.gz
-  sha256: c770e4b76f726e653d2b7c2c73f71941a88de6eb47ccf8fb8e984b55562d05a2
+  sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: {{ build_number }}
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
@@ -17,14 +20,16 @@ requirements:
   host:
     - python >=3.9
     - pip
-    - numpy  # it is noarch and the numpy import at setup.py is a bug
   run:
     - python >=3.9
-    - numpy
-    - matplotlib-base
-    - colorspacious
-    - scipy
-    - PySide2
+    - numpy ~=1.22
+    - colorspacious ~=1.1
+    - scipy ~=1.8
+    - matplotlib ~=3.5
+    # For some reason, the below config fails to build (see
+    # https://github.com/conda-forge/viscm-feedstock/pull/11#issuecomment-1589953730)
+    # - matplotlib-base ~=3.5
+    # - PySide6
 
 about:
   home: https://github.com/bids/viscm
